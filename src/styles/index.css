@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #101622;
+    color: #ffffff;
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: #2d3748; border-radius: 4px; }
+  ::-webkit-scrollbar-thumb:hover { background: #4a5568; }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary hover:bg-blue-600 text-white font-semibold px-4 py-2 rounded-lg transition-all duration-200 shadow-lg shadow-blue-900/20 flex items-center gap-2;
+  }
+  .btn-secondary {
+    @apply bg-surface-dark hover:bg-border-dark text-white font-medium px-4 py-2 rounded-lg border border-border-dark transition-all duration-200 flex items-center gap-2;
+  }
+  .input-field {
+    @apply w-full bg-surface-dark border border-border-dark text-white rounded-lg px-4 py-2.5 text-sm placeholder-text-secondary focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all;
+  }
+  .card {
+    @apply bg-card-dark rounded-xl border border-border-dark p-5;
+  }
+  .badge-status {
+    @apply inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-xs font-semibold;
+  }
+  .priority-low    { @apply bg-blue-500/10 text-blue-400 ring-1 ring-blue-500/20; }
+  .priority-medium { @apply bg-amber-500/10 text-amber-400 ring-1 ring-amber-500/20; }
+  .priority-high   { @apply bg-red-500/10 text-red-400 ring-1 ring-red-500/20; }
+  .priority-urgent { @apply bg-rose-600/10 text-rose-400 ring-1 ring-rose-600/20; }
+  .status-todo     { @apply bg-slate-500/10 text-slate-400 ring-1 ring-slate-500/20; }
+  .status-in_progress { @apply bg-blue-500/10 text-blue-400 ring-1 ring-blue-500/20; }
+  .status-in_review   { @apply bg-amber-500/10 text-amber-400 ring-1 ring-amber-500/20; }
+  .status-done        { @apply bg-green-500/10 text-green-400 ring-1 ring-green-500/20; }
+}
+
+/* Material Symbols */
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  user-select: none;
+}
+
+/* Page transitions */
+.page-enter { animation: fadeIn 0.25s ease; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Kanban drag */
+.kanban-dragging { opacity: 0.5; cursor: grabbing; }
